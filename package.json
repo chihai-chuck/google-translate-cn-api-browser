@@ -1,12 +1,12 @@
 {
-  "name": "google-translate-api-browser",
-  "version": "1.1.53",
+  "name": "google-translate-cn-api-browser",
+  "version": "1.0.0",
   "description": "A free and unlimited API for Google Translate that works in browser",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cjvnjde/google-translate-api-browser"
+    "url": "https://github.com/chihai-chuck/google-translate-cn-api-browser"
   },
   "scripts": {
     "build": "tsc --declaration"
