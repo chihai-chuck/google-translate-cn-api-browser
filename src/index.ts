@@ -6,7 +6,7 @@ interface TranslateOptions {
   from: string;
   to: string;
   raw: boolean;
-  domain: string;
+  url: string;
 }
 
 interface Token {
@@ -31,13 +31,13 @@ export const setCORS = (CORSURL: string) => {
 // function translate(text: string, to: string, from?: string) {
 export function translate(
   text: string,
-  opts_: { from?: string; to?: string; raw?: boolean; domain?: string } = {}
+  opts_: { from?: string; to?: string; raw?: boolean; domain?: string; url?: string; } = {}
 ) {
   const opts: TranslateOptions = {
     from: opts_.from || "auto",
     to: opts_.to || "en",
     raw: opts_.raw || false,
-    domain: opts_.domain || "cn"
+    url: opts_.url || `https://translate.google.${opts_.domain || "cn"}/translate_a/single`
   };
 
   let e: Error | null = null;
@@ -56,7 +56,7 @@ export function translate(
 
   return token(text)
     .then((token: Token) => {
-      const url = `https://translate.google.${opts.domain}/translate_a/single`;
+      const url = opts.url;
       const data = {
         client: "gtx",
         sl: getCode(opts.from),
