@@ -54,7 +54,7 @@ export function translate(
 
   return token(text)
     .then((token: Token) => {
-      const url = "https://translate.google.com/translate_a/single";
+      const url = "https://translate.google.cn/translate_a/single";
       const data = {
         client: "gtx",
         sl: getCode(opts.from),
