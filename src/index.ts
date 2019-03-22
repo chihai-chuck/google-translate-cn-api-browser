@@ -83,6 +83,7 @@ export function translate(
           };
           const result = {
             text: "",
+            pronunciation: "",
             from: {
               language: {
                 didYouMean: false,
@@ -102,6 +103,8 @@ export function translate(
           body[0].forEach((obj: any) => {
             if (obj[0]) {
               result.text += obj[0];
+            } else if (obj[2]) {
+              result.pronunciation += obj[2];
             }
           });
 
